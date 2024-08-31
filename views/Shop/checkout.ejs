@@ -1,0 +1,20 @@
+<%- include('../include/navigationbar.ejs') %>
+
+<% products.forEach(p => { %>
+    <main class="showcart">
+        <span id="h1"><%= p.productId.title %></span>
+        <span id="h1">Quntity : <%= p.quantity %></span>
+    </main>
+<% }) %>
+   <div style="text-align: center;">
+    <h2>Total Amount:<%= totalsum %></h2>
+   </div>
+   <div style="margin-top: 20px; text-align: center;">
+    <button id="order-btn" class="btn btn-outline-primary">ORDER</button>
+    <input type="hidden" id="sessionId" value="<%= sessionId %>">
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="/javascript/payment.js"></script>
+   </div>
+
+
+<%- include('../include/bottm.ejs') %>

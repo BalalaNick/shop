@@ -1,0 +1,63 @@
+<%- include('../include/navigationbar.ejs') %>
+
+<style>
+    label{
+        font-size: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
+<link rel="stylesheet" href="/css/addproductform.css">
+<% if (errorMessage) { %>
+    <h2 id="user-validation">
+        <%= errorMessage %>
+    </h2>
+<% } %>
+
+<div class="container-lg mt-3 d-flex justify-content-center">
+    <form class="shadow rounded-1" action="/admin/<% if (editing) { %>edit-product<% } else { %>add-product<% } %>" method="post" enctype="multipart/form-data">
+      <div class="container-fluid bg-dark p-2 m-0 text-center">
+        <span class="fs-5 fw-bolder text-primary"><% if (editing) { %>Edit Post<% } else { %>Create Post<% } %></span>
+      </div>
+      <div class="p-2">
+        <label for="title">Title:</label>
+        <input class="form-control-sm border border-dark form-control <%= validationErrors.find(e => e.path === 'title') ? 'invalid' : '' %>" 
+               type="text" 
+               id="title"
+               name="title" 
+               placeholder="Product Name" 
+               value="<% if (editing || hasError) { %><%= product.title %><% } %>">
+      </div>
+      <div class="p-2">
+        <label for="image">Product Image:</label>
+        <input class="form-control-sm border border-dark form-control <%= validationErrors.find(e => e.path === 'url') ? 'invalid' : '' %>" 
+            type="file" 
+            name="image"
+            id="image" 
+            placeholder="select image">
+      </div>
+      <div class="p-2">
+        <label for="Price">Price:</label>
+        <input class="form-control-sm border border-dark form-control <%= validationErrors.find(e => e.path === 'price') ? 'invalid' : '' %>" 
+               type="number" 
+               name="price"
+               id="Price" 
+               placeholder="Product price" 
+               value="<% if (editing || hasError) { %><%= product.price %><% } %>">
+      </div>
+      <div class="p-2">
+        <label for="description">Description:</label>
+        <textarea class="form-control-sm border border-dark form-control <%= validationErrors.find(e => e.path === 'description') ? 'invalid' : '' %>" 
+        name="description"
+        id="description" 
+        placeholder="Product price"><% if (editing || hasError) { %><%= product.price %><% } %></textarea>
+      </div>
+      <div class="p-3 text-center">
+        <button type="submit" class="btn btn-primary"><% if (editing) { %>Update Product<% } else { %> Post Product <% } %></button>
+      </div>
+      <% if(editing) { %>
+        <input type="hidden" value="<%= product._id %>" name="productID" >
+        <% } %>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    </form>
+  </div>
+<%- include('../include/bottm.ejs') %>

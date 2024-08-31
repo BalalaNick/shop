@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title><%= pagetitle %></title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .continers {
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            height: 100%;
+            margin: 30px;
+            margin-top: 0px;
+        }
+
+        .continers #h2 {
+            background-color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            color: white;
+            width: 100%;
+            height: 50px;
+            margin: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .continers #h1 {
+            background-color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            font-size: 20px;
+            width: 100%;
+            height: 50px;
+            margin: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .continers img {
+            width: 70%;
+            background-color: aqua;
+            object-fit: contain;
+        }
+
+        .continers .buttondiv a{
+            text-decoration: none;
+            text-align: center;
+        }
+        .continers .buttondiv {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .showcart{
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 100px;
+            padding: 20px;
+            margin: 30px;
+        }
+
+        .showcart #h1{
+          font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+        }
+
+        #user-validation{
+            background-color:#fd5c63;
+            padding: 10px;
+            margin: 20px;
+            border: 2px solid red;
+            text-align: center;
+        }
+        .create-product form input.invalid{
+            border: 2px solid red;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+          <span class="btn btn-primary">Deals</span>
+    
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link text-primary" href="/">Shop</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-primary" href="/products">Products</a>
+              </li>
+              <% if(isAuthntication) { %>
+              <li class="nav-item">
+                <a class="nav-link text-primary" href="/cart">Cart</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-primary" href="/order">Order</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-primary" href="/admin/add-product">Add Product</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-primary" href="/admin/products">Admin Product</a>
+              </li>
+              <% } %>
+            </ul>
+            <div class="d-flex">
+              <ul class="navbar-nav">
+                <% if(!isAuthntication) { %>
+                <li class="nav-item">
+                  <a class="nav-link text-primary" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-primary" href="/signup">SignUp</a>
+                </li>
+                <% } else { %>
+                  <form action="/logout" method="post">
+                    <li class="nav-item">
+                      <button type="submit" class="btn btn-outline-primary">Logout</button>
+                      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    </li>
+                  </form>
+                <% } %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+<!-- <div class="nav">
+    <div>Deals</div>
+    <ul class="ulpoint">
+        <li><span id="closeicon">&#9587;</span></li>
+        <li><a href="/">Shop</a></li>
+        <li><a href="/products">Products</a></li>
+        <% if(isAuthntication) { %>
+          <li><a href="/cart">Cart</a></li>
+          <li><a href="/order">Order</a></li>
+          <li><a href="/admin/add-product">Add Product</a></li>
+          <li><a href="/admin/products">Admin Product</a></li>
+        <% } %>
+    </ul>
+    <div id="menuiocn" class="box">MENU</div>
+    <ul>
+        <% if(!isAuthntication) { %>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/signup">Signup</a></li>
+        <% } else { %>
+         <li>
+          <form action="/logout" method="post">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button type="submit" style="color: white;">Logout</button>
+          </form>
+         </li>
+        <% } %>
+    </ul>
+</div> -->
+
+<script src="/javascript/navigation.js"></script>
+    

@@ -1,0 +1,7 @@
+{
+    "env":{
+        "MONGO_USER": "yashvekariya9510",
+        "MONGO_PASSWORD": "YASH9510",
+        "MONGO_DEFULT_DATABSE": "SHOP"
+    }
+}

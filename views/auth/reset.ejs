@@ -1,0 +1,21 @@
+<%- include('../include/navigationbar.ejs') %>
+
+<link rel="stylesheet" href="/css/login.css">
+
+<% if (ereMessage) { %>
+    <h2 id="user-validation">
+        <%= ereMessage %>
+    </h2>
+<% } %>
+
+<div class="center"> 
+<div class="create-product">
+    <h1>Reset Password</h1>
+    <form action="/reset" method="POST">
+        <input type="email" name="email" placeholder="Enter Email id" > 
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <button type="submit">Reset Password</button>
+    </form>
+</div>
+</div>
+<%- include('../include/bottm.ejs') %>

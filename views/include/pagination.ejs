@@ -1,0 +1,37 @@
+<!-- <section class="pagination">
+    <% if(currentpage !== 1 && Prepage !== 1) { %>
+        <a href="?page=1">1</a>
+    <% } %>
+    <% if(hasPrepage) { %>
+        <a href="?page=<%= Prepage %>"><%= Prepage %></a>
+    <% } %>
+    <a href="?page=<%= currentpage %>" class="active"><%= currentpage %></a>
+    <% if(hasNextpage) { %>
+        <a href="?page=<%= Nextpage %>"><%= Nextpage %></a>
+    <% } %>
+    <% if(Lastpage !== currentpage && Nextpage !== Lastpage) { %>
+        <a href="?page=<%= Lastpage %>"><%= Lastpage %></a>
+    <% } %>
+</section> -->
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+    <% if(currentpage !== 1 && Prepage !== 1) { %>
+      <li class="page-item">
+        <a class="page-link" href="?page=1" tabindex="-1" aria-disabled="true">1</a>
+      </li>
+    <% } %>
+    <% if(hasPrepage) { %>
+      <li class="page-item"><a class="page-link" href="?page=<%= Prepage %>"><%= Prepage %></a></li>
+    <% } %>
+      <li class="page-item"><a class="page-link active" href="?page=<%= currentpage %>"><%= currentpage %></a></li>
+    <% if(hasNextpage) { %>
+      <li class="page-item"><a class="page-link" href="?page=<%= Nextpage %>"><%= Nextpage %></a></li>
+    <% } %>
+    <% if(Lastpage !== currentpage && Nextpage !== Lastpage) { %>
+      <li class="page-item">
+        <a class="page-link" href="?page=<%= Lastpage %>"><%= Lastpage %></a>
+      </li>
+    <% } %>
+    </ul>
+  </nav>

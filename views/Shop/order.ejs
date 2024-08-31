@@ -1,0 +1,26 @@
+<%- include('../include/navigationbar.ejs') %>
+
+<link rel="stylesheet" href="/css/order.css">
+
+<% if (orders.length <= 0) { %>
+        <div class="spinner-border text-primary" style="margin-top: 100px;margin-left: 50%;" role="status">
+                <span class="visually-hidden">Loading...</span>
+        </div>
+<% } else { %>
+<div class="order-continer">
+        <% orders.forEach(order => { %>
+                <h1 id="id"><span>&#8595;</span> Order ID - # <%= order._id %> <a class="btn btn-outline-info text-dark" href="/order-invoice/<%= order._id %>">Invoice</a></h1>
+                <div class="order-product">
+                    <% order.products.forEach(p => { %>
+                    <ul>
+                        <li><h1><%= p.product.title %></h1></li>
+                        <img src="/<%= p.product.imageurl %>" alt="image">
+                        <li><h2>Quantity:<%= p.quantity %></h2></li>
+                    </ul>
+                    <% }); %>
+                </div>
+        <% }); %>
+<% } %> 
+
+
+<%- include('../include/bottm.ejs') %>

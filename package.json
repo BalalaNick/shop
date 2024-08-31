@@ -1,0 +1,44 @@
+{
+  "name": "backend-shop-mongodb",
+  "version": "1.0.0",
+  "main": "app.js",
+  "engines": {
+    "node": "18.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODE_ENV=production MONGO_USER=yashvekariya9510 MONGO_PASSWORD=YASH9510 MONGO_DEFULT_DATABSE=SHOP node app.js",
+    "start-server": "node app.js",
+    "start:dev": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^3.1.4"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "compression": "^1.7.4",
+    "connect-flash": "^0.1.1",
+    "connect-mongodb-session": "^5.0.0",
+    "csurf": "^1.11.0",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "express-validator": "^7.1.0",
+    "helmet": "^7.1.0",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.5.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.10.2",
+    "nodemailer": "^6.9.14",
+    "pdfkit": "^0.15.0",
+    "pug": "^3.0.3",
+    "sequelize": "^6.37.3",
+    "stripe": "^16.2.0"
+  },
+  "description": ""
+}

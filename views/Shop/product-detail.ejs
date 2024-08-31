@@ -1,0 +1,14 @@
+<%- include('../include/navigationbar.ejs') %>
+
+<link rel="stylesheet" href="/css/index.css">
+
+<div class="shop-continer">
+    <div class="continers">
+        <span id="h1"><%= product.title %></span>
+        <img src="/<%= product.imageurl %>"alt="product">
+        <span id="h2">$<%= product.price %></span>
+        <p id="description"><%= product.description %></p>
+    </div>
+</div>
+
+<%- include('../include/bottm.ejs') %>
